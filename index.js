@@ -44,3 +44,7 @@ function pickRandomChar(){
         return characters[randomIndex]
     }
 }
+
+function copyPassword(){
+    navigator.clipboard.writeText(passwordElOne.textContent)
+}
