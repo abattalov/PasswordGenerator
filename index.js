@@ -3,18 +3,26 @@ const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O",
 let generateButton = document.getElementById('generateButton')
 let passwordElOne = document.getElementById('passwordOne')
 let passwordElTwo = document.getElementById('passwordTwo')
+let passwordLengthInput = document.getElementById('passwordLength')
+let passwordLength
+
 
 generateButton.addEventListener('click', generatePasswords)
+passwordLengthInput.addEventListener('change', (e) => {
+    passwordLength = e.target.value
+})
+
 
 function generatePasswords(){
     passwordElOne.textContent = ''
     passwordElTwo.textContent = ''
-    for(let i = 0; i < 10; i++){
+    
+    for(let i = 0; i < passwordLength; i++){
         let character = pickRandomChar()
         passwordElOne.textContent += character
     }
 
-    for(let i = 0; i < 10; i++){
+    for(let i = 0; i < passwordLength; i++){
         let character = pickRandomChar()
         passwordElTwo.textContent += character
     }
