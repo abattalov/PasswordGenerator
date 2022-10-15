@@ -16,6 +16,8 @@ passwordLengthInput.addEventListener('change', (e) => {
 function generatePasswords(){
     passwordElOne.textContent = ''
     passwordElTwo.textContent = ''
+
+    validateInput();
     
     for(let i = 0; i < passwordLength; i++){
         let character = pickRandomChar()
@@ -25,6 +27,14 @@ function generatePasswords(){
     for(let i = 0; i < passwordLength; i++){
         let character = pickRandomChar()
         passwordElTwo.textContent += character
+    }
+}
+
+function validateInput() {
+    if (!passwordLength) {
+        alert('Please select a desired password length');
+    } else if (passwordLength.match(/^[0-9]+$/) === null) {
+        alert('Please enter a number only');
     }
 }
 
